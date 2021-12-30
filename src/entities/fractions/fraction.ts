@@ -4,7 +4,8 @@ import _Decimal from 'decimal.js-light'
 import _Big, { RoundingMode } from 'big.js'
 import toFormat from 'toformat'
 
-import { BigintIsh, Rounding, ONE } from '../../constants'
+import { BigintIsh, Rounding } from '../../constants'
+import { ONE } from '../../constants'
 import { parseBigintIsh } from '../../utils'
 
 const Decimal = toFormat(_Decimal)
@@ -22,9 +23,8 @@ const toFixedRounding = {
   [Rounding.ROUND_UP]: RoundingMode.RoundUp
 }
 
-export default class Fraction {
+export class Fraction {
   public readonly numerator: JSBI
-  
   public readonly denominator: JSBI
 
   public constructor(numerator: BigintIsh, denominator: BigintIsh = ONE) {
